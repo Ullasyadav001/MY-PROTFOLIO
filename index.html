@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ullas Yadav L</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio of Ullas Yadav L — Computer Science undergraduate at P E S College Mandya.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout concept: a quiet ink-dark editorial page, one warm amber accent, mono eyebrows, terminal hero card. */
+:root{
+  --bg:#0e1116;
+  --surface:#151a21;
+  --surface-2:#1b212b;
+  --fg:#e9e7e2;
+  --muted:#99a2ae;
+  --accent:#f0a63c;
+  --accent-ink:#141008;
+  --line:#272e39;
+  --ok:#5fbf77;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#faf7f1; --surface:#ffffff; --surface-2:#f3efe7;
+    --fg:#1c212a; --muted:#5c6572; --accent:#b97a12; --accent-ink:#fffaf0;
+    --line:#e5dfd3; --ok:#2e8b4f;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#faf7f1; --surface:#ffffff; --surface-2:#f3efe7;
+  --fg:#1c212a; --muted:#5c6572; --accent:#b97a12; --accent-ink:#fffaf0;
+  --line:#e5dfd3; --ok:#2e8b4f;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--body); font-size:16.5px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+.wrap{
+  max-width:1060px;margin:0 auto;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+section{padding-block:72px}
+.eyebrow{
+  font-family:var(--mono);font-size:.78rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:10px;margin:0 0 14px;
+}
+.eyebrow::after{content:"";height:1px;width:56px;background:var(--line)}
+.sec-title{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:700;margin-bottom:10px}
+.sec-lede{color:var(--muted);max-width:62ch;margin:0 0 36px}
+
+/* ---------- nav ---------- */
+header.nav{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--mono);font-weight:600;font-size:.95rem;text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav-links a{
+  text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;
+  padding:7px 11px;border-radius:8px;
+}
+.nav-links a:hover{color:var(--fg);background:var(--surface-2)}
+#themeToggle{
+  border:1px solid var(--line);background:var(--surface);color:var(--fg);
+  width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:1rem;
+  display:grid;place-items:center;
+}
+#themeToggle:hover{border-color:var(--accent)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:84px 72px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hello{font-family:var(--mono);color:var(--accent);font-size:.9rem;margin:0 0 14px}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.3rem);font-weight:800;letter-spacing:-.015em}
+.hero .role{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);margin:18px 0 0;max-width:46ch}
+.hero .role b{color:var(--fg);font-weight:600}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:12px;
+  border:1px solid var(--line);transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn-primary:hover{box-shadow:0 8px 24px -8px var(--accent)}
+.btn-ghost{background:var(--surface);color:var(--fg)}
+.btn-ghost:hover{border-color:var(--accent)}
+
+/* terminal card */
+.term{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;box-shadow:0 24px 60px -30px rgba(0,0,0,.55);
+  font-family:var(--mono);font-size:.82rem;line-height:1.75;min-width:0;
+}
+.term-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.dot:nth-child(1){background:#e0604f}.dot:nth-child(2){background:#e5b84b}.dot:nth-child(3){background:#58b368}
+.term-bar em{font-style:normal;color:var(--muted);font-size:.74rem;margin-left:6px}
+.term-body{padding:18px 20px;overflow-x:auto}
+.term-body pre{margin:0;white-space:pre}
+.tk-kw{color:#c678dd}.tk-str{color:#98c379}.tk-var{color:#61afef}.tk-cm{color:var(--muted)}
+:root[data-theme="light"] .tk-kw{color:#a626a4}
+:root[data-theme="light"] .tk-str{color:#50a14f}
+:root[data-theme="light"] .tk-var{color:#4078f2}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]) .tk-kw{color:#a626a4}
+  :root:not([data-theme="dark"]) .tk-str{color:#50a14f}
+  :root:not([data-theme="dark"]) .tk-var{color:#4078f2}
+}
+.cursor{display:inline-block;width:8px;height:1.05em;background:var(--accent);vertical-align:text-bottom;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){
+  .cursor{animation:none}
+  html{scroll-behavior:auto}
+  .btn:hover{transform:none}
+}
+
+/* ---------- stats strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:64px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.stat b{font-family:var(--display);font-size:1.6rem;font-weight:700;display:block;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:.85rem}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start}
+.about-grid p{margin:0 0 16px;max-width:65ch;color:var(--fg)}
+.about-grid p.dim{color:var(--muted)}
+.fact-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.fact-list li{
+  display:flex;gap:12px;align-items:baseline;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:.92rem;
+}
+.fact-list .k{font-family:var(--mono);font-size:.74rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;flex:0 0 86px}
+
+/* ---------- education timeline ---------- */
+.timeline{display:grid;gap:0;position:relative;margin-left:8px}
+.t-item{position:relative;padding:0 0 36px 34px;border-left:1px solid var(--line)}
+.t-item:last-child{padding-bottom:0;border-left-color:transparent}
+.t-item::before{
+  content:"";position:absolute;left:-7px;top:4px;width:13px;height:13px;border-radius:50%;
+  background:var(--bg);border:3px solid var(--accent);
+}
+.t-when{font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.06em}
+.t-item h3{font-size:1.2rem;font-weight:700;margin:6px 0 2px}
+.t-sub{color:var(--muted);margin:0 0 10px;font-size:.95rem}
+.score{
+  display:inline-block;font-family:var(--mono);font-size:.8rem;font-weight:600;
+  color:var(--accent);border:1px solid var(--line);background:var(--surface);
+  border-radius:999px;padding:4px 12px;
+}
+
+/* ---------- projects ---------- */
+.proj-featured{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-width:0;
+}
+.proj-info{padding:30px 32px}
+.proj-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.proj-info h3{font-size:1.45rem;font-weight:700;margin-bottom:12px}
+.proj-info p{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+.feat-list{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:9px;font-size:.9rem}
+.feat-list li{display:flex;gap:10px;align-items:baseline}
+.feat-list li::before{content:"▸";color:var(--accent);flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:var(--mono);font-size:.76rem;font-weight:500;color:var(--fg);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:5px 13px;
+}
+.chip.hot{color:var(--accent);border-color:var(--accent)}
+.proj-visual{
+  background:var(--surface-2);border-left:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;padding:28px;min-width:0;
+}
+.mini-browser{
+  width:100%;max-width:360px;background:var(--bg);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;box-shadow:0 18px 44px -22px rgba(0,0,0,.5);
+}
+.mb-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.mb-url{
+  flex:1;font-family:var(--mono);font-size:.66rem;color:var(--muted);
+  background:var(--surface);border-radius:6px;padding:4px 10px;margin-left:6px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.mb-body{padding:18px 16px;display:grid;gap:10px}
+.sk{border-radius:6px;background:var(--surface-2)}
+.sk.title{height:16px;width:62%;background:var(--accent);opacity:.85}
+.sk.line{height:8px;width:90%}
+.sk.line.s{width:70%}
+.sk-row{display:flex;gap:8px;margin-top:4px}
+.sk.card{height:44px;flex:1}
+.proj-links{display:flex;gap:12px;margin-top:4px}
+.proj-links a{font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none}
+.proj-links a:hover{text-decoration:underline}
+/* ---------- skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.skill-box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.skill-box h3{font-size:.8rem;font-family:var(--mono);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+
+/* ---------- contact ---------- */
+.contact-box{
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:40px 36px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;
+}
+.contact-box h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800;margin-bottom:10px}
+.contact-box .lede{color:var(--muted);margin:0}
+.c-lines{display:grid;gap:12px}
+.c-line{
+  display:flex;align-items:center;gap:12px;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:0;
+}
+.c-line .lbl{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;flex:0 0 52px}
+.c-line .val{font-size:.92rem;font-weight:500;user-select:all;overflow-wrap:anywhere;min-width:0}
+.copy{
+  margin-left:auto;border:1px solid var(--line);background:var(--bg);color:var(--muted);
+  font-family:var(--mono);font-size:.68rem;border-radius:8px;padding:5px 10px;cursor:pointer;flex:0 0 auto;
+}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+.socials{display:flex;gap:12px;margin-top:4px}
+.socials a{font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none}
+.socials a:hover{text-decoration:underline}
+
+footer{border-top:1px solid var(--line);padding-block:28px;margin-top:40px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.84rem}
+.foot .mono{font-family:var(--mono);font-size:.76rem}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px){
+  .hero-grid,.about-grid,.proj-featured,.contact-box{grid-template-columns:1fr}
+  .proj-visual{border-left:none;border-top:1px solid var(--line)}
+  .skill-grid{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr}
+  section{padding-block:56px}
+  .hero{padding-block:56px 48px}
+  .nav-links a:not(.keep){display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top">ullas<span>.</span>yadav</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects" class="keep">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="keep">Contact</a>
+      <button id="themeToggle" aria-label="Switch theme" title="Switch theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="hello">~/ullas $ whoami</p>
+          <h1>Ullas Yadav&nbsp;L</h1>
+          <p class="role"><b>Computer Science undergraduate</b> at P E S College Mandya — building a foundation in <b>Python</b> and <b>C</b>, and exploring how AI agents are built with tools like LangGraph.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">View my work</a>
+            <a class="btn btn-ghost" href="https://github.com/ullasyadav001" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="term" aria-hidden="true">
+          <div class="term-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <em>about_me.py</em>
+          </div>
+          <div class="term-body">
+<pre><span class="tk-cm"># a quick introduction</span>
+<span class="tk-var">student</span> = {
+    <span class="tk-str">"name"</span>: <span class="tk-str">"Ullas Yadav L"</span>,
+    <span class="tk-str">"degree"</span>: <span class="tk-str">"B.E. Computer Science"</span>,
+    <span class="tk-str">"learning"</span>: [<span class="tk-str">"Python"</span>, <span class="tk-str">"C"</span>, <span class="tk-str">"AI agents"</span>],
+    <span class="tk-str">"open_to"</span>: <span class="tk-str">"internships"</span>,
+}
+<span class="tk-kw">print</span>(<span class="tk-str">"Let's build something."</span>)<span class="cursor"></span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="strip">
+        <div class="stat"><b>92.3%</b><span>Pre-University (PCMB)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">01 · About</p>
+      <h2 class="sec-title">A first-year with a head start.</h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm a motivated Computer Science engineering student with working knowledge of Python and C, currently in my first year at P E S College, Mandya. I'm looking for an internship where I can apply what I'm learning, get practical exposure, and grow by contributing to real projects.</p>
+          <p class="dim">I'm a quick learner with a strong interest in problem-solving and a willingness to take on new challenges.</p>
+        </div>
+        <ul class="fact-list">
+          <li><span class="k">Based in</span><span>Mandya, Karnataka, India</span></li>
+          <li><span class="k">Degree</span><span>B.E. Computer Science (2026–present)</span></li>
+          <li><span class="k">Focus</span><span>Python · C · Web · AI agents</span></li>
+          <li><span class="k">Status</span><span>Open to internship opportunities</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <p class="eyebrow">02 · Education</p>
+      <h2 class="sec-title">Where I'm studying.</h2>
+      <p class="sec-lede">Consistent academic performance, from pre-university science through engineering.</p>
+      <div class="timeline">
+        <div class="t-item">
+          <span class="t-when">SEP 2026 — PRESENT</span>
+          <h3>P E S College, Mandya</h3>
+          <p class="t-sub">Bachelor of Engineering in Computer Science</p>
+        </div>
+        <div class="t-item">
+          <span class="t-when">JUN 2024 — AUG 2026</span>
+          <h3>Bharathi Composite PU College, Mandya</h3>
+          <p class="t-sub">Pre-University — Science (Physics, Chemistry, Mathematics, Biology)</p>
+          <span class="score">92.3%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow">03 · Projects</p>
+      <h2 class="sec-title">Built, shipped, and live.</h2>
+      <p class="sec-lede">The best proof of a project is the one you're looking at.</p>
+
+      <div class="proj-featured">
+        <div class="proj-info">
+          <p class="proj-tag">Featured · Web</p>
+          <h3>Personal Portfolio Website</h3>
+          <p>This very site — designed and hand-coded from scratch as a single fast-loading page, with no frameworks or templates. Version-controlled with Git and deployed through GitHub.</p>
+          <ul class="feat-list">
+            <li>Fully responsive layout, from phone to desktop</li>
+            <li>Dark &amp; light themes that follow the system, with a manual toggle</li>
+            <li>Semantic, accessible HTML with keyboard-visible focus states</li>
+            <li>Interactive touches in vanilla JavaScript — theme memory, copy-to-clipboard contact details</li>
+          </ul>
+          <div class="chips">
+            <span class="chip hot">HTML5</span>
+            <span class="chip hot">CSS3</span>
+            <span class="chip hot">JavaScript</span>
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+          </div>
+          <div class="proj-links" style="margin-top:20px">
+            <a href="https://github.com/ullasyadav001" target="_blank" rel="noopener">Source on GitHub ↗</a>
+          </div>
+        </div>
+        <div class="proj-visual" aria-hidden="true">
+          <div class="mini-browser">
+            <div class="mb-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="mb-url">ullasyadav001.github.io</span>
+            </div>
+            <div class="mb-body">
+              <div class="sk title"></div>
+              <div class="sk line"></div>
+              <div class="sk line s"></div>
+              <div class="sk-row">
+                <div class="sk card"></div><div class="sk card"></div><div class="sk card"></div>
+              </div>
+              <div class="sk line"></div>
+              <div class="sk line s"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="eyebrow">04 · Skills</p>
+      <h2 class="sec-title">Tools I work with.</h2>
+      <div class="skill-grid">
+        <div class="skill-box">
+          <h3>Programming</h3>
+          <div class="chips">
+            <span class="chip hot">Python</span>
+            <span class="chip">C (basic)</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>Web &amp; UI</h3>
+          <div class="chips">
+            <span class="chip hot">HTML</span>
+            <span class="chip hot">CSS</span>
+            <span class="chip">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>AI Tools</h3>
+          <div class="chips">
+            <span class="chip">Claude</span>
+            <span class="chip">ChatGPT</span>
+            <span class="chip">Gemini</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>Tools &amp; Platforms</h3>
+          <div class="chips">
+            <span class="chip">VS Code</span>
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <p class="eyebrow">05 · Contact</p>
+          <h2>Let's work together.</h2>
+          <p class="lede">I'm actively looking for internships and chances to contribute to real projects. Reach out — I reply fast.</p>
+          <div class="socials" style="margin-top:18px">
+            <a href="https://www.linkedin.com/in/ullas-yadav-00bab5449" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/ullasyadav001" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="c-lines">
+          <div class="c-line">
+            <span class="lbl">Email</span>
+            <span class="val" id="emailVal">ullasyadav001@gmail.com</span>
+            <button class="copy" data-copy="ullasyadav001@gmail.com">copy</button>
+          </div>
+          <div class="c-line">
+            <span class="lbl">Phone</span>
+            <span class="val" id="phoneVal">+91 91087 42946</span>
+            <button class="copy" data-copy="+919108742946">copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Ullas Yadav L · Mandya, India</span>
+    <span class="mono">designed &amp; built with HTML · CSS · JS</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+
+  // Theme toggle: explicit choice overrides system, remembered per browser.
+  try{
+    var saved = localStorage.getItem("theme");
+    if(saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  }catch(e){}
+
+  function currentIsDark(){
+    var t = root.getAttribute("data-theme");
+    if(t) return t === "dark";
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  var btn = document.getElementById("themeToggle");
+  if(btn){
+    btn.addEventListener("click", function(){
+      var next = currentIsDark() ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try{ localStorage.setItem("theme", next); }catch(e){}
+    });
+  }
+
+  // Copy buttons with fallback to text selection.
+  document.querySelectorAll(".copy").forEach(function(b){
+    b.addEventListener("click", function(){
+      var text = b.getAttribute("data-copy");
+      function done(ok){
+        b.textContent = ok ? "copied!" : "select →";
+        setTimeout(function(){ b.textContent = "copy"; }, 1600);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ selectFallback(); });
+      }else{
+        selectFallback();
+      }
+      function selectFallback(){
+        var val = b.parentElement.querySelector(".val");
+        if(val && window.getSelection){
+          var r = document.createRange();
+          r.selectNodeContents(val);
+          var s = window.getSelection();
+          s.removeAllRanges(); s.addRange(r);
+        }
+        done(false);
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
